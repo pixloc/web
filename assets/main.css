@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+:root {  
+  --pl-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --pl-font-monospace: 'Press Start 2P', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --pl-body-font-family: var(--pl-font-sans-serif);
+  --pl-body-font-size: 1rem;
+  --pl-body-font-weight: 400;
+  --pl-body-line-height: 1.6;
+  --pl-body-text-align: left;
+  --pl-body-color: #fff;
+  --pl-body-bg: #000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--pl-body-font-family);
+  font-size: var(--pl-body-font-size);
+  font-weight: var(--pl-body-font-weight);
+  line-height: var(--pl-body-line-height);
+  color: var(--pl-body-color);
+  text-align: var(--pl-body-text-align);
+  background-color: var(--pl-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden; 
+  cursor: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none'><path d='M59.5 0H60.5V120H59.5V0Z' fill='white'/><path d='M120 59.5V60.5L0 60.5L4.37112e-08 59.5L120 59.5Z' fill='white'/></svg>") 60 60, auto;
+}
+
+body::after {
+  content: "";
+  background: url('./noise.gif');
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+
+main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    padding-top: 15vh;
+    padding-bottom: 17vh;
+    padding-left: 12vw;
+    padding-right: 12vw;
+}
+
+.nav {
+  list-style-type: none; 
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: calc(24 * 0.0625rem);
+  flex-grow: 1;
+}
+
+.nav li {
+  display: inline;
+}
+
+a {
+  display: inline-block;
+  color: var(--pl-body-color);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  /* text-decoration-thickness: 0.1rem; */
+  text-decoration-color: rgba(255, 255, 255, 0.48);
+}
+
+a:hover {
+  background-color: rgba(255, 255, 255, 0.48);
+  cursor: none;
+  text-decoration: none;
+}
+
+.logo {
+  width: calc(464 * 0.0625rem);
+  height: auto;
+  margin-left: calc(-32 * 0.0625rem);
+  margin-bottom: calc(48 * 0.0625rem);
+}
+
+
+.lead {
+  font-family: var(--pl-font-monospace);
+}
+
+canvas { 
+  background: #000; 
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+}
+
+.opensea:hover {
+  background-color: rgba(32, 129, 226, 0.48);
+}
+.twitter:hover {
+  background-color: rgba(29, 155, 240, 0.48);
+}
+.discord:hover {
+  background-color:rgba(64, 78, 237, 0.48);
+}
+.etherscan:hover {
+  background-color: rgba(52, 152, 219, 0.48);
+}
+
+.trait {
+  position: absolute;
+  bottom: 0;
+  right: calc(120 * 0.0625rem);
+  z-index: -1;
+}
+
+/* Small devices */
+@media (max-width: 575.98px) { 
+  body { overflow: auto; } 
+  .logo { 
+    width: 72vw;
+    margin-top: 2vh;
+    margin-left: -6vw; 
+    margin-bottom: 4vh; 
+  }
+  .brand { 
+    flex-grow: 1; 
+    margin-bottom: 4vh;
+  }
+  .nav {  
+    flex-direction: column;
+    order: 2;
+    flex-grow: unset;
+    margin-bottom: 2vh;
+    }
+  main {  padding: 16vw; }
+
+}
